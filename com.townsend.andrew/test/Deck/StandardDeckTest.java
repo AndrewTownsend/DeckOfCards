@@ -7,12 +7,14 @@ package Deck;
 import Deck.Shufflers.IShuffler;
 import Deck.Shufflers.InPlaceShuffler;
 import PlayingCard.Card;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class StandardDeckTest {
 
@@ -36,5 +38,12 @@ public class StandardDeckTest {
     public void test_getAllCards() {
         ArrayList<Card> cards = deck.getCards();
         assertTrue(cards.size() > 0);
+    }
+
+    @Test
+    public void test_clone() {
+        Deck comparisonDeck = deck.clone();
+        Assert.assertTrue(deck.equals(comparisonDeck));
+        Assert.assertNotEquals(comparisonDeck, deck); //should be different references
     }
 }

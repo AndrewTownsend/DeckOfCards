@@ -1,7 +1,7 @@
 package Deck.Shufflers;
 
 /*
-    Created by Andrew Townsend on June 17th, 2019 @ 12:28am
+    Created by Andrew Townsend on June 17th, 2019 @ 6:01am
  */
 
 import Deck.Deck;
@@ -10,14 +10,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class InPlaceShufflerTest {
+public class InPlaceSuperShufflerTest {
 
     Deck deck;
-    InPlaceShuffler shuffler;
+    InPlaceSuperShuffler shuffler;
 
     @Before
     public void setup() {
-        shuffler = new InPlaceShuffler();
+        shuffler = new InPlaceSuperShuffler();
         deck = new StandardDeck(shuffler);
     }
 
