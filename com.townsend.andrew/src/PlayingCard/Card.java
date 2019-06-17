@@ -8,6 +8,7 @@ public class Card {
     private Ranks rank;
     private Suites suite;
 
+    // constructor for basic "Poker"-style card
     public Card(Ranks rank, Suites suite) {
         this.rank = rank;
         this.suite = suite;

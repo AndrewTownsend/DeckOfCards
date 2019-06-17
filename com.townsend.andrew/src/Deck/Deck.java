@@ -18,11 +18,12 @@ public abstract class Deck {
         this.cards = new ArrayList<>();
     }
 
-    //prepare the game by shuffling
+    // prepare the game by shuffling.  Could add a "Cut the Deck" operation here, if desired
     public void shuffleDeck() {
         shuffler.shuffle(this);
     }
 
+    // deals one card, off the top of the deck.  Could be overriden to deal from the bottom
     public Card dealOneCard() {
         if(cards.size() == 0) {
             return null;
@@ -35,7 +36,7 @@ public abstract class Deck {
         return cards;
     }
 
-    public void setCards(ArrayList<Card> cards) {
+    protected void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
 
