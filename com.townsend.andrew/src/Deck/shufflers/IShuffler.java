@@ -1,8 +1,6 @@
-package Deck.shufflers;
+package Deck.Shufflers;
 
-import PlayingCard.Card;
-
-import java.util.ArrayList;
+import Deck.Deck;
 
 /*
     Created by Andrew Townsend on June 15th, 2019 @ 5:25am
@@ -10,6 +8,6 @@ import java.util.ArrayList;
 
 public interface IShuffler {
 
-    void shuffle(ArrayList<Card> cards);
+    void shuffle(Deck deck);
 
 }

@@ -15,7 +15,7 @@ public abstract class Deck {
 
     public Deck(IShuffler shuffler) {
         this.shuffler = shuffler;
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<>();
     }
 
     //prepare the game by shuffling
@@ -35,6 +35,12 @@ public abstract class Deck {
         return cards;
     }
 
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
+    public abstract Deck clone();
+
     // get status of the deck
     public String toString() {
         String result = cards.get(0).toString();
@@ -42,5 +48,18 @@ public abstract class Deck {
             result += ", " + cards.get(i).toString();
         }
         return result;
+    }
+
+    // only checks the contents of the cards array to see if the cards are in the same order
+    public boolean equals(Deck deck) {
+        ArrayList<Card> cards = this.getCards();
+        ArrayList<Card> comparisonCards = deck.getCards();
+        if(this.getCards().size() != cards.size()) { return false; }
+        for(int i = 0; i < cards.size(); i++) {
+            if(!cards.get(i).equals(comparisonCards.get(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

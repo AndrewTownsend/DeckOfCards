@@ -1,6 +1,8 @@
-package Deck.shufflers;
+package Deck.Shufflers;
 
+import Deck.Deck;
 import PlayingCard.Card;
+import utils.RandomNumberGenerator;
 
 import java.util.ArrayList;
 
@@ -10,7 +12,12 @@ import java.util.ArrayList;
 
 public class InPlaceShuffler implements IShuffler {
 
-    public void shuffle(ArrayList<Card> cards) {
-
+    // passes over the deck one time, randomizing it.
+    public void shuffle(Deck deck) {
+        ArrayList<Card> cards = deck.getCards();
+        for(int i = 0; i < cards.size(); i++) {
+            int newIndex = RandomNumberGenerator.generateRandomIntBetweenBounds(0, cards.size());
+            cards.add(newIndex, cards.remove(i));
+        }
     }
 }

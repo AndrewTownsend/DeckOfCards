@@ -13,7 +13,15 @@ public class Card {
         this.suite = suite;
     }
 
+    public Card clone() {
+        return new Card(this.rank, this.suite);
+    }
+
     public String toString() {
         return rank.toString() + suite.toString();
+    }
+
+    public boolean equals(Card card) {
+        return this.rank == card.rank && this.suite == card.suite;
     }
 }
