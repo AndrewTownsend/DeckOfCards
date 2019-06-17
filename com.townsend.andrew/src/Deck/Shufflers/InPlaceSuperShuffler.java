@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class InPlaceSuperShuffler implements IShuffler {
 
-    private static final int NUM_CARD_TRADES = 1024;
+    private static final int NUM_CARD_TRADES = 4098;
 
     /*
         Swaps one card at a time, for the number of times specified either by constant or passed in variable
@@ -22,7 +22,8 @@ public class InPlaceSuperShuffler implements IShuffler {
 
     }
 
-    public void shuffleNumTimes(Deck deck, int numberOfSwaps) {
+    // could be made public for outside use.  Private for now, since there's no current usecase for that
+    private void shuffleNumTimes(Deck deck, int numberOfSwaps) {
         ArrayList<Card> cards = deck.getCards();
         for(int i = 0; i < numberOfSwaps; i++) {
             int swap = RandomNumberGenerator.generateRandomIntBetweenBounds(0, cards.size());
