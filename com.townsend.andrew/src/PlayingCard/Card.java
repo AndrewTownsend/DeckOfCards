@@ -22,7 +22,10 @@ public class Card {
         return rank.toString() + suite.toString();
     }
 
-    public boolean equals(Card card) {
+    @Override
+    public boolean equals(Object object) {
+        if(!(object instanceof Card)) { return false; }
+        Card card = (Card) object;
         return this.rank == card.rank && this.suite == card.suite;
     }
 }

@@ -26,9 +26,9 @@ public abstract class Deck {
     // deals one card, off the top of the deck.  Could be overriden to deal from the bottom
     public Card dealOneCard() {
         if(cards.size() == 0) {
-            return null;
+            return null; // could throw an exception here, but an empty deck is a valid state
         }
-        Card dealtCard = cards.remove(0);
+        Card dealtCard = cards.remove(cards.size() - 1); // deal from the end of the array; faster.
         return dealtCard;
     }
 
@@ -52,7 +52,10 @@ public abstract class Deck {
     }
 
     // only checks the contents of the cards array to see if the cards are in the same order
-    public boolean equals(Deck deck) {
+    @Override
+    public boolean equals(Object object) {
+        if(!(object instanceof Deck)) { return false; }
+        Deck deck = (Deck) object;
         ArrayList<Card> cards = this.getCards();
         ArrayList<Card> comparisonCards = deck.getCards();
         if(this.getCards().size() != cards.size()) { return false; }

@@ -44,6 +44,5 @@ public class StandardDeckTest {
     public void test_clone() {
         Deck comparisonDeck = deck.clone();
         Assert.assertTrue(deck.equals(comparisonDeck));
-        Assert.assertNotEquals(comparisonDeck, deck); //should be different references
     }
 }
